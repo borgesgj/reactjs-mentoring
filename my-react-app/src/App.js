@@ -7,9 +7,9 @@ function HelloFunctionComponent(props) {
   return <p>- Hello ReactJS using Function Component with mynumber*3={props.mynumber*3}</p>
 }
 
-const title = React.createElement('h2', {key:"0"}, 'ReactJS Task 1');
-const helloElement = React.createElement('p', {key:"1"}, '- Hello ReactJS using React.createElement');
-const gitHubLink = React.createElement('a', {key:"5", href: "https://github.com/borgesgj/reactjs-mentoring.git"}, 'Find me on GitHub');
+const title = React.createElement('h2', {}, 'ReactJS Task 1');
+const helloElement = React.createElement('p', {}, '- Hello ReactJS using React.createElement');
+const gitHubLink = React.createElement('a', {href: "https://github.com/borgesgj/reactjs-mentoring.git"}, 'Find me on GitHub');
 
 function App() {
   return (
