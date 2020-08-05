@@ -3,6 +3,10 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 process.env.NODE_ENV = "production"; 
 
 module.exports = {
+  mode: "production",
+  optimization: {
+    minimize: true
+  },
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),

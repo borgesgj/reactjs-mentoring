@@ -3,6 +3,14 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 process.env.NODE_ENV = "development";
 
 module.exports = {
+  mode: "development",
+  optimization: {
+      minimize: false
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
+    port:8000
+  },
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
