@@ -9,7 +9,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
-    port:8000
+    port:8888
   },
   entry: "./src/index.js",
   output: {
