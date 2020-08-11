@@ -1,0 +1,58 @@
+@import "../../styles/colors.less";
+
+.movie-poster-container {
+    position: relative;
+    margin-top: 5%;
+    margin-right: 3%;
+    width: 30%;
+    height: 50%;
+}
+
+.movie-poster-image {
+    top: 0px;
+    left: 0px;
+    max-width:100%;
+    min-width: 100%;
+}
+
+.movie-poster-info div p{
+    color: @white-transparent;
+    margin: 0px;
+}
+
+.movie-poster-info-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.movie-poster-info-year {
+    color: @white-transparent;
+    border: 1px solid @white-transparent !important;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 2.5rem;
+}
+
+.movie-poster-more {
+    position: absolute;
+    top: 3%;
+    left: 85%;
+    padding-top: 10px;
+    background-color: @dark-gray;
+    color: @white;
+    height: 30px;
+    width: 40px;
+    border-radius: 20px;
+    z-index: 10;
+    vertical-align: middle;
+    text-align: center;
+    transform: rotate(-90deg);
+    font-weight: 800;
+}
+
+.movie-poster-more:hover {
+    background-color: @red;
+    cursor: pointer;
+}

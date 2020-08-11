@@ -1,0 +1,60 @@
+@import "./colors.less";
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 100;
+    color: #ffffff;
+    margin: 20px;
+}
+
+input[type="text"] {
+    background: @dark-gray-transparent;
+    border: none;
+    padding: 15px;
+    font-size: 1.25em;
+    color: @white;
+    margin: 20px;
+    width: 60%;
+    border-radius: 5px;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.container {
+    margin: 20px;
+}
+
+.separator {
+    background-color: @light-gray;
+    height: 10px;
+    width: 100%;
+}
+
+.left-align {
+    float: left;
+}
+
+.right-align {
+    float: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.application {
+    background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
