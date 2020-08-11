@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import './style.less';
 
 function TabItem (props) {
-
     var classes = "tab-item ";
 
     if (props.enabled)
