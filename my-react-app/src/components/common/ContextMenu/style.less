@@ -1,0 +1,31 @@
+@import "../../../styles/colors.less";
+
+.context-menu-container {
+    position: absolute;
+    top: 3%;
+    left: 45%;
+    width: 50%;
+    padding: 0px;
+    margin: 0px;
+    background-color: @dark-gray;
+    color: @white;
+    text-align: right;
+    z-index: 20;
+}
+
+.context-menu-close {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.context-menu-item {
+    margin: 0px;
+    padding: 20px;
+    background-color: @dark-gray;
+    text-align: left;
+    cursor: pointer;
+}
+
+.context-menu-item:hover {
+    background-color: @red;
+}
