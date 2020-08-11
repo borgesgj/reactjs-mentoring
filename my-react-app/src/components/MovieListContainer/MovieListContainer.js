@@ -55,15 +55,37 @@ function MovieListContainer() {
             }
 
         ];
+    var tabItems = [
+        {
+            id: "1",
+            enabled: true,
+            title: "ALL"
+        },
+        {
+            id: "2",
+            enabled: false,
+            title: "DOCUMENTARY"
+        },
+        {
+            id: "3",
+            enabled: false,
+            title: "COMEDY"
+        },
+        {
+            id: "4",
+            enabled: false,
+            title: "HORROR"
+        },
+        {
+            id: "5",
+            enabled: false,
+            title: "CRIME"
+        }
+    ];
 
     return (
         <div className="movie-list-container clearfix">
-            <TabControl>
-                <TabItem class="left-align" enabled={true} title="ALL"/>
-                <TabItem class="left-align" title="DOCUMENTARY"/>
-                <TabItem class="left-align" title="COMEDY"/>
-                <TabItem class="left-align" title="HORROR"/>
-                <TabItem class="left-align" title="CRIME"/>
+            <TabControl tabItems={tabItems}>
                 <Select>
                     <option>RELEASE DATE</option>
                     <option>NAME</option>

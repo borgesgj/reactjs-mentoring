@@ -8,7 +8,7 @@ function MoviePoster(props) {
 
     return (
         <div id={id} className="movie-poster-container left-align clearfix">
-                <img className="movie-poster-image" src={props.imgUri}/>
+            <img className="movie-poster-image" src={props.imgUri}/>
             <div className="movie-poster-more">&#8226; &#8226; &#8226;</div>
             <div className="movie-poster-info">
                 <div className="left-align">
