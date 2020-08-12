@@ -8,7 +8,7 @@ function ContextMenu (props) {
         <div className="context-menu-item" key={item.id} >{item.text}</div>);
 
     return (
-        <div className="context-menu-container">
+        <div className="context-menu-container hidden">
             <span className="context-menu-close">x</span>
             {itemList}
         </div>
