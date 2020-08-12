@@ -7,8 +7,12 @@ function TabControl (props) {
     var tabItems = props.tabItems;
     var enabledTab = props.enabledTab;
     var itemList = tabItems.map((item)=>
-        <TabItem key={item.id} class="left-align" enabled={enabledTab === item.id} title={item.title}/>);
+        <TabItem key={item.id} class="left-align" enabled={enabledTab === item.id} title={item.title} onClick={()=>tabItemClicked(item.id)}/>);
 
+    function tabItemClicked(tabId) {
+        // change tab enabled mark
+        console.log("Tab Item #" + tabId + " clicked");
+    }
     return ( 
         <div className="tab-control clearfix">
             {itemList}

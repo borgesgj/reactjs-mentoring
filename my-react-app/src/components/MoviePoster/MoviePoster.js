@@ -18,14 +18,15 @@ function MoviePoster(props) {
         }
     ];
 
-    function showContextMenu() {
-        // remove hidden class from ContextMenu div
+    function showContextMenuClicked() {
+        // load context menu
+        console.log("Display Context Menu Icon for movie #" + movie.id + " clicked");
     }
 
     return (
         <div id={id} className="movie-poster-container left-align clearfix">
             <img className="movie-poster-image" src={movie.image}/>
-            <div className="movie-poster-more" onClick={() => showContextMenu()}>&#8226; &#8226; &#8226;</div>
+            <div className="movie-poster-more" onClick={() => showContextMenuClicked()}>&#8226; &#8226; &#8226;</div>
             <ContextMenu items={contextMenuItems}/>
             <div className="movie-poster-info">
                 <div className="left-align">

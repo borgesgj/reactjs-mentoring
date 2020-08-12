@@ -9,6 +9,7 @@ function MovieReview(props) {
     var movie = props.movie;
     function close() {
         // close the review panel
+        console.log("MovieReview closed");
     }
 
     return (

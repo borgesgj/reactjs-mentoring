@@ -10,13 +10,14 @@ function TabItem (props) {
     
     classes += props.class;
 
-    return <div className={classes}>{props.title}</div>;
+    return <div className={classes} onClick={props.onClick}>{props.title}</div>;
 }
   
 TabItem.propTypes = {
     title: PropTypes.string,
     enabled: PropTypes.bool,
     class: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 export default TabItem;
