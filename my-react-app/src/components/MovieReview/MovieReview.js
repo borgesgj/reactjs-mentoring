@@ -7,17 +7,21 @@ import Button from "../common/Button/Button";
 
 function MovieReview(props) {
     var movie = props.movie;
+
     function close() {
-        // close the review panel
-        
-        console.log("MovieReview closed");
+        var data ={
+            display: "SearchControl",
+            movie: null
+        };
+
+        props.onClose(data)
     }
 
     return (
         <div className="movie-review-container">
             <div className="clearfix">
                 <PageName/>
-                <Button title="X" class="btn btn-icon right-align"/>
+                <Button title="X" class="btn btn-icon right-align" onClick={() => close()}/>
             </div>
             <div className="clearfix">
                 <div className="movie-review-image-container left-align">
@@ -36,13 +40,7 @@ function MovieReview(props) {
 
 MovieReview.propTypes = {
     movie: PropTypes.object,
-    imgUri: PropTypes.string,
-    title: PropTypes.string,
-    year: PropTypes.number,
-    genre: PropTypes.string,
-    duration: PropTypes.number,
-    resume: PropTypes.string,
-    rating: PropTypes.number
+    onClose: PropTypes.func,
 }
 
 export default MovieReview;

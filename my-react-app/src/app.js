@@ -1,32 +1,40 @@
 import React from "react";
 import "./styles/styles.less";
-import SearchControl from "./components/SearchControl/SearchControl";
 import Footer from "./components/Footer/Footer";
 import MovieListContainer from "./components/MovieListContainer/MovieListContainer";
 import ErrorBoundary from "./components/Error/ErrorBoundary";
+import SearchControl from "./components/SearchControl/SearchControl";
+import MovieReview from "./components/MovieReview/MovieReview";
 
-function App(){
-    var dummyMovieReview = {
-        id: 1,
-        image: "./img/posters/1.jpg",
-        title: "Pulp Fiction",
-        year: 2004,
-        genre: "Action & Adventure",
-        duration: 154,
-        rating: 4.3,
-        resume: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents."
-    };
+class App extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <div className="full-height">
-            <ErrorBoundary>
-                <SearchControl/>
-                <div className="separator"></div>
-                <MovieListContainer/>
-                <Footer/>
-            </ErrorBoundary>
-        </div>
-    );
+        this.state = {display: "SearchControl"};
+        this.movie = null;
+    }
+
+    onDisplayChanged(data) {
+        this.movie = data.movie;
+        this.setState({display: data.display})
+    }
+
+    render() {
+        var searchOrReviewElement = (this.state.display === "MovieReview")
+            ? (<MovieReview movie={this.movie} onClose={(data) => this.onDisplayChanged(data)}/>)
+            : (<SearchControl/>);
+
+        return (
+            <div className="full-height">
+                <ErrorBoundary>
+                    {searchOrReviewElement}
+                    <div className="separator"></div>
+                    <MovieListContainer onMovieClick={(data) => this.onDisplayChanged(data)}/>
+                    <Footer/>
+                </ErrorBoundary>
+            </div>
+        );
+    }
 }
 
 export default App;

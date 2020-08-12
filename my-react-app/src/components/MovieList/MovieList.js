@@ -7,7 +7,7 @@ import MoviePoster from "../MoviePoster/MoviePoster";
 function MovieList(props) {
     var movies = props.movieList;
     var moviePosterList = movies.map((movie)=>
-        <MoviePoster key={movie.id} movie={movie} />);
+        <MoviePoster key={movie.id} movie={movie} onClick={(data) => props.onMovieClick(data)} />);
 
     return (
         <div className="container movie-list-fix">
@@ -18,6 +18,7 @@ function MovieList(props) {
 
 MovieList.propTypes = {
     movieList: PropTypes.array,
+    onMovieClick: PropTypes.func,
 }
 
 export default MovieList;

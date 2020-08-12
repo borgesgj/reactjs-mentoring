@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import './style.less';
 import MovieCount from "../MovieCount/MovieCount";
 import TabItem from "../common/TabItem/TabItem";
@@ -7,7 +8,7 @@ import Select from "../common/Select/Select";
 import MovieList from "../MovieList/MovieList";
 
 
-function MovieListContainer() {
+function MovieListContainer(props) {
     var movieCount = 39;
     var movieList = 
         [
@@ -106,9 +107,13 @@ function MovieListContainer() {
                 <TabItem class="right-align tab-item-not-clickable" title="SORT BY"/>
             </TabControl>
             <MovieCount movieCount={movieCount}/>
-            <MovieList movieList={movieList}/>
+            <MovieList movieList={movieList} onMovieClick={(data) => props.onMovieClick(data)}/>
         </div>
     );
+}
+
+MovieListContainer.propTypes = {
+    onMovieClick: PropTypes.func,
 }
 
 export default MovieListContainer;

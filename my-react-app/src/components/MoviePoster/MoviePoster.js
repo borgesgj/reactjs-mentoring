@@ -9,6 +9,7 @@ class MoviePoster extends React.Component {
 
         this.state = {isContextMenuVisible: false};
         this.movie = props.movie;
+        this.onClick = props.onClick;
     }
 
     showContextMenuClicked() {
@@ -20,8 +21,12 @@ class MoviePoster extends React.Component {
     }
 
     showMovieReview() {
-        // load movie preview
-        console.log("MovieRviewelement clicked");
+        var data ={
+            display: "MovieReview",
+            movie: this.movie
+        };
+
+        this.onClick(data)
     }
 
     editMovie(){
@@ -69,6 +74,7 @@ class MoviePoster extends React.Component {
 
 MoviePoster.propTypes = {
     movie: PropTypes.object,
+    onClick: PropTypes.func,
 }
 
 export default MoviePoster;
