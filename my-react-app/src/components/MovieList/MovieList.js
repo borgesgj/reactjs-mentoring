@@ -7,7 +7,7 @@ import MoviePoster from "../MoviePoster/MoviePoster";
 function MovieList(props) {
     var movies = props.movieList;
     var moviePosterList = movies.map((movie)=>
-        <MoviePoster key={movie.id} id={movie.id} imgUri={movie.image} title={movie.title} year={movie.year} genre={movie.genre} />);
+        <MoviePoster movie={movie} />);
 
     return (
         <div className="container movie-list-fix">

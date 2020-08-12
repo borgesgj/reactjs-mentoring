@@ -8,7 +8,7 @@ import Button from "../common/Button/Button";
 function MovieReview(props) {
     var movie = props.movie;
     function close() {
-        // remove hidden class from ContextMenu div
+        // close the review panel
     }
 
     return (
