@@ -5,7 +5,7 @@ import './style.less';
 function ContextMenu (props) {
     var items = props.items;
     var itemList = items.map((item)=>
-        <div className="context-menu-item" key={item.id} >{item.text}</div>);
+        <div className="context-menu-item" key={item.id} onClick={item.action}>{item.text}</div>);
 
     return (
         <div className="context-menu-container">

@@ -23,16 +23,27 @@ class MoviePoster extends React.Component {
         // load movie preview
         console.log("MovieRviewelement clicked");
     }
+
+    editMovie(){
+        console.log("EditMovie context menu clicked for movie#" + this.movie.id);
+    }
+
+    deleteMovie(){
+        console.log("DeleteMovie context menu clicked for movie#" + this.movie.id);
+    }
+
     render() {
         var htmlId = "movie_poster_container_" + this.movie.id;
         var contextMenuItems = [
             {
                 id: 1,
-                text: "Edit"
+                text: "Edit",
+                action: () => this.editMovie()
             },
             {
                 id: 2,
-                text: "Delete"
+                text: "Delete",
+                action: () => this.deleteMovie()
             }
         ];
         var contextMenu = this.state.isContextMenuVisible
