@@ -9,18 +9,19 @@ function MovieReview(props) {
     var movie = props.movie;
     function close() {
         // close the review panel
+        
         console.log("MovieReview closed");
     }
 
     return (
-        <div className="movie-review-container hidden">
+        <div className="movie-review-container">
             <div className="clearfix">
                 <PageName/>
                 <Button title="X" class="btn btn-icon right-align"/>
             </div>
             <div className="clearfix">
                 <div className="movie-review-image-container left-align">
-                    <img className="movie-review-image" src={movie.imgUri}/>
+                    <img className="movie-review-image" src={movie.image}/>
                 </div>
                 <div className="movie-review-info left-align">
                     <h1 className="movie-review-title">{movie.title}</h1>

@@ -1,16 +1,14 @@
 import React from "react";
 import "./styles/styles.less";
-import Header from "./components/Header/Header";
 import SearchControl from "./components/SearchControl/SearchControl";
 import Footer from "./components/Footer/Footer";
 import MovieListContainer from "./components/MovieListContainer/MovieListContainer";
 import ErrorBoundary from "./components/Error/ErrorBoundary";
-import MovieReview from "./components/MovieReview/MovieReview";
 
 function App(){
     var dummyMovieReview = {
         id: 1,
-        imgUri: "./img/posters/1.jpg",
+        image: "./img/posters/1.jpg",
         title: "Pulp Fiction",
         year: 2004,
         genre: "Action & Adventure",
@@ -27,7 +25,6 @@ function App(){
                 <MovieListContainer/>
                 <Footer/>
             </ErrorBoundary>
-            <MovieReview movie={dummyMovieReview}/>
         </div>
     );
 }

@@ -7,14 +7,9 @@ function ContextMenu (props) {
     var itemList = items.map((item)=>
         <div className="context-menu-item" key={item.id} >{item.text}</div>);
 
-    function close() {
-        // close the context menu
-        console.log("Context menu closed");
-    }
-
     return (
-        <div className="context-menu-container hidden">
-            <span className="context-menu-close" onClick={() => close()}>x</span>
+        <div className="context-menu-container">
+            <span className="context-menu-close" onClick={props.onCloseClicked}>x</span>
             {itemList}
         </div>
     );
@@ -22,6 +17,7 @@ function ContextMenu (props) {
   
 ContextMenu.propTypes = {
     items: PropTypes.array,
+    onCloseClicked: PropTypes.func,
 }
 
 export default ContextMenu;

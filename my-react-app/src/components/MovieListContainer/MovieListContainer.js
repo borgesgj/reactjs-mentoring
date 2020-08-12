@@ -16,42 +16,60 @@ function MovieListContainer() {
                 image: "./img/posters/1.jpg",
                 title: "Pulp Fiction",
                 year: 2004,
-                genre: "Action & Adventure"
+                genre: "Action & Adventure",
+                duration: 154,
+                rating: 4.3,
+                resume: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.",
             },
             {
                 id: 2,
                 image: "./img/posters/2.jpg",
                 title: "Bohemian Rhapsody",
                 year: 2003,
-                genre: "Drama, Biography, Music"
+                genre: "Drama, Biography, Music",
+                duration: 154,
+                rating: 4.3,
+                resume: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.",
             },
             {
                 id: 3,
                 image: "./img/posters/3.jpg",
                 title: "Kill Bill: Vol 2",
                 year: 1994,
-                genre: "Oscar winning Movie"
+                genre: "Oscar winning Movie",
+                duration: 154,
+                rating: 4.3,
+                resume: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.",
             },
             {
                 id: 4,
                 image: "./img/posters/4.jpg",
                 title: "Avengers: Infinity War",
                 year: 2004,
-                genre: "Action & Adventure"
+                genre: "Action & Adventure",
+                duration: 154,
+                rating: 4.3,
+                resume: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.",
             },
             {
                 id: 5,
                 image: "./img/posters/5.jpg",
                 title: "Inception",
                 year: 2003,
-                genre: "Action & Adventure"
+                genre: "Action & Adventure",
+                duration: 154,
+                rating: 4.3,
+                resume: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.",
             },
             {
                 id: 6,
                 image: "./img/posters/6.jpg",
                 title: "Reservoir Dogs",
                 year: 1994,
-                genre: "Oscar winning Movie"
+                genre: "Oscar winning Movie",
+                duration: 154,
+                rating: 4.3,
+                resume: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.",
             }
 
         ];
