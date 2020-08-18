@@ -100,7 +100,7 @@ function MovieListContainer(props) {
     return (
         <div className="movie-list-container clearfix">
             <TabControl tabItems={tabItems} enabledTab={1}>
-                <Select>
+                <Select align="right-align fill-width">
                     <option>RELEASE DATE</option>
                     <option>NAME</option>
                 </Select>

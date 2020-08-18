@@ -5,6 +5,7 @@ import MovieListContainer from "./components/MovieListContainer/MovieListContain
 import ErrorBoundary from "./components/Error/ErrorBoundary";
 import SearchControl from "./components/SearchControl/SearchControl";
 import MovieReview from "./components/MovieReview/MovieReview";
+import NewMovieDialog from "./components/NewMovieDialog/NewMovieDialog";
 
 class App extends React.Component {
     constructor(props) {
@@ -19,20 +20,22 @@ class App extends React.Component {
         this.setState({display: data.display})
     }
 
+    onNewMovieSubmitClicked() {
+        console.log("New Movie modal Submit clicked");
+    }
+
     render() {
         var searchOrReviewElement = (this.state.display === "MovieReview")
             ? (<MovieReview movie={this.movie} onClose={(data) => this.onDisplayChanged(data)}/>)
             : (<SearchControl/>);
 
         return (
-            <div className="full-height">
-                <ErrorBoundary>
-                    {searchOrReviewElement}
-                    <div className="separator"></div>
-                    <MovieListContainer onMovieClick={(data) => this.onDisplayChanged(data)}/>
-                    <Footer/>
-                </ErrorBoundary>
-            </div>
+            <ErrorBoundary>
+                {searchOrReviewElement}
+                <div className="separator"></div>
+                <MovieListContainer onMovieClick={(data) => this.onDisplayChanged(data)}/>
+                <Footer/>
+            </ErrorBoundary>
         );
     }
 }
