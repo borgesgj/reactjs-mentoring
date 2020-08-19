@@ -5,10 +5,14 @@ import Select from "../common/Select/Select";
 import ModalDialog from "../common/ModalDialog/ModalDialog";
 import TextInput from "../common/TextInput/TextInput";
 
-function NewMovieDialog(props) {
+function EditMovieDialog(props) {
+    var movie = props.movie;
+
     return (
-        <ModalDialog title="Add Movie" okText="SUBMIT" resetText="RESET" onSubmit={() =>  props.onMovieSubmitClick}
+        <ModalDialog title="Edit Movie" okText="SUBMIT" resetText="RESET" onSubmit={() => props.onMovieSubmitClick}
             onCloseClicked={props.onModalCloseClick}>
+            <Label text="Movie ID"/>
+            <p>{movie.code}</p>
             <Label text="TITLE"/>
             <TextInput name="title" placeholder="Movie Title here" class="modal-dialog-input" />
             <Label text="Release Date"/>
@@ -32,11 +36,11 @@ function NewMovieDialog(props) {
     );
 }
   
-NewMovieDialog.propTypes = {
-    title: PropTypes.string,
+EditMovieDialog.propTypes = {
     class: PropTypes.string,
+    movie: PropTypes.object,
     onSubmit: PropTypes.func,
     onModalCloseClick: PropTypes.func,
 }
 
-export default NewMovieDialog;
+export default EditMovieDialog;

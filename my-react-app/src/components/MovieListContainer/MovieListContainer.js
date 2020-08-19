@@ -14,6 +14,7 @@ function MovieListContainer(props) {
         [
             {
                 id: 1,
+                code: "MOPF2004",
                 image: "./img/posters/1.jpg",
                 title: "Pulp Fiction",
                 year: 2004,
@@ -24,6 +25,7 @@ function MovieListContainer(props) {
             },
             {
                 id: 2,
+                code: "MOBR2003",
                 image: "./img/posters/2.jpg",
                 title: "Bohemian Rhapsody",
                 year: 2003,
@@ -34,6 +36,7 @@ function MovieListContainer(props) {
             },
             {
                 id: 3,
+                code: "MOKB1994",
                 image: "./img/posters/3.jpg",
                 title: "Kill Bill: Vol 2",
                 year: 1994,
@@ -44,9 +47,10 @@ function MovieListContainer(props) {
             },
             {
                 id: 4,
+                code: "MOAIF2018",
                 image: "./img/posters/4.jpg",
                 title: "Avengers: Infinity War",
-                year: 2004,
+                year: 2018,
                 genre: "Action & Adventure",
                 duration: 154,
                 rating: 4.3,
@@ -54,6 +58,7 @@ function MovieListContainer(props) {
             },
             {
                 id: 5,
+                code: "MOI2003",
                 image: "./img/posters/5.jpg",
                 title: "Inception",
                 year: 2003,
@@ -64,6 +69,7 @@ function MovieListContainer(props) {
             },
             {
                 id: 6,
+                code: "MORD1994",
                 image: "./img/posters/6.jpg",
                 title: "Reservoir Dogs",
                 year: 1994,
@@ -107,13 +113,13 @@ function MovieListContainer(props) {
                 <TabItem class="right-align tab-item-not-clickable" title="SORT BY"/>
             </TabControl>
             <MovieCount movieCount={movieCount}/>
-            <MovieList movieList={movieList} onMovieClick={(data) => props.onMovieClick(data)}/>
+            <MovieList movieList={movieList} onActionClick={(data) => props.onActionClick(data)}/>
         </div>
     );
 }
 
 MovieListContainer.propTypes = {
-    onMovieClick: PropTypes.func,
+    onActionClick: PropTypes.func,
 }
 
 export default MovieListContainer;

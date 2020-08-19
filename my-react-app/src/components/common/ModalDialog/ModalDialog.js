@@ -10,6 +10,10 @@ function ModalDialog (props) {
 
     }
 
+    var resetButton = (props.resetText != undefined)
+        ? (<button className="btn btn-md btn-transparent right-align" onClick={() => reset()}>{props.resetText}</button>)
+        : "";
+
     return (
         <div className="modal-dialog-container">
             <PageName/>
@@ -23,7 +27,7 @@ function ModalDialog (props) {
                 </div>
                 <div className="modal-footer clearfix">
                     <button className="btn btn-md btn-main right-align">{props.okText}</button>
-                    <button className="btn btn-md btn-transparent right-align" onClick={() => reset()}>{props.resetText}</button>
+                    {resetButton}
                 </div>
             </div>
             <Footer/>

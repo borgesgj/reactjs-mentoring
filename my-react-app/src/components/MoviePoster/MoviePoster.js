@@ -9,7 +9,7 @@ class MoviePoster extends React.Component {
 
         this.state = {isContextMenuVisible: false};
         this.movie = props.movie;
-        this.onClick = props.onClick;
+        this.onActionClick = props.onActionClick;
     }
 
     showContextMenuClicked() {
@@ -26,15 +26,25 @@ class MoviePoster extends React.Component {
             movie: this.movie
         };
 
-        this.onClick(data)
+        this.onActionClick(data)
     }
 
     editMovie(){
-        console.log("EditMovie context menu clicked for movie#" + this.movie.id);
+        var data ={
+            display: "EditMovieDialog",
+            movie: this.movie
+        };
+
+        this.onActionClick(data)
     }
 
     deleteMovie(){
-        console.log("DeleteMovie context menu clicked for movie#" + this.movie.id);
+        var data ={
+            display: "DeleteMovieDialog",
+            movie: this.movie
+        };
+
+        this.onActionClick(data)
     }
 
     render() {
@@ -74,7 +84,7 @@ class MoviePoster extends React.Component {
 
 MoviePoster.propTypes = {
     movie: PropTypes.object,
-    onClick: PropTypes.func,
+    onActionClick: PropTypes.func,
 }
 
 export default MoviePoster;
