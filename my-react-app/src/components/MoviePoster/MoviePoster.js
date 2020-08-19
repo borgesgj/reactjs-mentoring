@@ -29,7 +29,9 @@ class MoviePoster extends React.Component {
         this.onActionClick(data)
     }
 
-    editMovie(){
+    editMovie() {
+        this.closeContextMenu();
+
         var data ={
             display: "EditMovieDialog",
             movie: this.movie
@@ -38,7 +40,9 @@ class MoviePoster extends React.Component {
         this.onActionClick(data)
     }
 
-    deleteMovie(){
+    deleteMovie() {
+        this.closeContextMenu();
+        
         var data ={
             display: "DeleteMovieDialog",
             movie: this.movie
