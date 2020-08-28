@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Label from "../common/Label/Label";
 import Select from "../common/Select/Select";
 import ModalDialog from "../common/ModalDialog/ModalDialog";
 import TextInput from "../common/TextInput/TextInput";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 function NewMovieDialog(props) {
+    const [startDate, setStartDate] = useState(new Date());
+
     return (
         <ModalDialog title="Add Movie" okText="SUBMIT" resetText="RESET" onSubmit={() =>  props.onMovieSubmitClick}
             onCloseClicked={props.onModalCloseClick}>
             <Label text="TITLE"/>
             <TextInput name="title" placeholder="Movie Title here" class="modal-dialog-input" />
             <Label text="Release Date"/>
-            <TextInput name="releaseDate" placeholder="Select Date" class="modal-dialog-input" icon="dropdown" />
+            <DatePicker 
+                selected={startDate} 
+                onChange={date => setStartDate(date)}
+                placeholder="Select a date"
+                className="modal-dialog-input"/>
             <Label text="Movie URL"/>
             <TextInput name="url" placeholder="Movie URL here" class="modal-dialog-input" />
             <Label text="Genre"/>
