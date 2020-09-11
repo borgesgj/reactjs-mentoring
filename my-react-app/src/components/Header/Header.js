@@ -1,36 +1,30 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import Button from "../common/Button/Button";
 import PageName from "../common/PageName/PageName";
 import NewMovieDialog from "../NewMovieDialog/NewMovieDialog";
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {displayModal: false};
-    }
+function Header() {
+    const [displayModal, setDisplayModal] = useState(false);
     
-    addMovieClicked() {
-        this.setState({displayModal: true});
+    function addMovieClicked() {
+        setDisplayModal(true);
     }
 
-    closeNewMovieModal() {
-        this.setState({displayModal: false});
+    function closeNewMovieModal() {
+       setDisplayModal(false);
     }
 
-    render() {
-        var newMovieDialog = this.state.displayModal
-            ? (<NewMovieDialog onModalCloseClick={() => this.closeNewMovieModal()} />)
-            : "";
+    var newMovieDialog = displayModal
+        ? (<NewMovieDialog onModalCloseClick={() => closeNewMovieModal()} />)
+        : "";
 
-        return (
-            <div className="clearfix">
-                <PageName/>
-                <Button title="+ ADD MOVIE" class="btn btn-default right-align" onClick={() => this.addMovieClicked()}/>
-                {newMovieDialog}
-            </div>
-        );
-    }
-    
+    return (
+        <div className="clearfix">
+            <PageName/>
+            <Button title="+ ADD MOVIE" class="btn btn-default right-align" onClick={() => addMovieClicked()}/>
+            {newMovieDialog}
+        </div>
+    );
 }
 
 export default Header;
