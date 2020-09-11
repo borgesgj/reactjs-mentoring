@@ -1,46 +1,59 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import './style.less';
 import ContextMenu from "../common/ContextMenu/ContextMenu";
 
-class MoviePoster extends React.Component {
-    constructor(props) {
-        super(props);
+function MoviePoster(props) {
+    const[isContextMenuVisible, setContextMenuVisible] = useState(false);
+    const movie = props.movie;
 
-        this.state = {isContextMenuVisible: false};
-        this.movie = props.movie;
-        this.onActionClick = props.onActionClick;
+    var htmlId = "movie_poster_container_" + movie.id;
+    var contextMenuItems = [
+        {
+            id: 1,
+            text: "Edit",
+            action: () => editMovie()
+        },
+        {
+            id: 2,
+            text: "Delete",
+            action: () => deleteMovie()
+        }
+    ];
+    var contextMenu = isContextMenuVisible
+        ? (<ContextMenu items={contextMenuItems} onCloseClicked={() => closeContextMenu()}/>) 
+        : ("");
+
+
+    function showContextMenuClicked() {
+        setContextMenuVisible(true);
     }
 
-    showContextMenuClicked() {
-        this.setState({isContextMenuVisible: true});
+    function closeContextMenu() {
+        setContextMenuVisible(false);
     }
 
-    closeContextMenu() {
-        this.setState({isContextMenuVisible: false});
-    }
-
-    showMovieReview() {
+    function showMovieReview() {
         var data ={
             display: "MovieReview",
-            movie: this.movie
+            movie: movie
         };
 
-        this.onActionClick(data)
+        props.onActionClick(data)
     }
 
-    editMovie() {
-        this.closeContextMenu();
+    function editMovie() {
+        closeContextMenu();
 
         var data ={
             display: "EditMovieDialog",
-            movie: this.movie
+            movie: movie
         };
 
-        this.onActionClick(data)
+        props.onActionClick(data)
     }
 
-    deleteMovie() {
+    function deleteMovie() {
         this.closeContextMenu();
         
         var data ={
@@ -48,42 +61,23 @@ class MoviePoster extends React.Component {
             movie: this.movie
         };
 
-        this.onActionClick(data)
+        props.onActionClick(data)
     }
 
-    render() {
-        var htmlId = "movie_poster_container_" + this.movie.id;
-        var contextMenuItems = [
-            {
-                id: 1,
-                text: "Edit",
-                action: () => this.editMovie()
-            },
-            {
-                id: 2,
-                text: "Delete",
-                action: () => this.deleteMovie()
-            }
-        ];
-        var contextMenu = this.state.isContextMenuVisible
-            ? (<ContextMenu items={contextMenuItems} onCloseClicked={() => this.closeContextMenu()}/>) 
-            : ("");
-
-        return (
-            <div id={htmlId} className="movie-poster-container left-align clearfix">
-                <img className="movie-poster-image" src={this.movie.image}  onClick={() => this.showMovieReview()}/>
-                <div className="movie-poster-more" onClick={() => this.showContextMenuClicked()}>&#8226; &#8226; &#8226;</div>
-                <div className="movie-poster-info">
-                    <div className="left-align">
-                        <p className="movie-poster-info-title">{this.movie.title}</p>
-                        <p>{this.movie.genre}</p>
-                    </div>
-                    <div className="right-align movie-poster-info-year">{this.movie.year}</div>
+    return (
+        <div id={htmlId} className="movie-poster-container left-align clearfix">
+            <img className="movie-poster-image" src={movie.image}  onClick={() => showMovieReview()}/>
+            <div className="movie-poster-more" onClick={() => showContextMenuClicked()}>&#8226; &#8226; &#8226;</div>
+            <div className="movie-poster-info">
+                <div className="left-align">
+                    <p className="movie-poster-info-title">{movie.title}</p>
+                    <p>{movie.genre}</p>
                 </div>
-                {contextMenu}
+                <div className="right-align movie-poster-info-year">{movie.year}</div>
             </div>
-        );
-    }
+            {contextMenu}
+        </div>
+    );
 }
 
 MoviePoster.propTypes = {
