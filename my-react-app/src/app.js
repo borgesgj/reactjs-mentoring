@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }  from "react";
 import "./styles/styles.less";
 import Footer from "./components/Footer/Footer";
 import MovieListContainer from "./components/MovieListContainer/MovieListContainer";
@@ -8,49 +8,43 @@ import MovieReview from "./components/MovieReview/MovieReview";
 import EditMovieDialog from "./components/EditMovieDialog/EditMovieDialog";
 import DeleteMovieDialog from "./components/DeleteMovieDialog/DeleteMovieDialog";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
+function App() {
+    const [display, setDisplay] = useState("SearchControl");
+    const [movie, setMovie] = useState(null);
 
-        this.state = {display: "SearchControl"};
-        this.movie = null;
+    function onDisplayChanged(data) {
+        setMovie(data.movie);
+        setDisplay(data.display);
     }
 
-    onDisplayChanged(data) {
-        this.movie = data.movie;
-        this.setState({display: data.display})
-    }
-
-    onNewMovieSubmitClicked() {
+    function onNewMovieSubmitClicked() {
         console.log("New Movie modal Submit clicked");
     }
 
-    onModalCloseClick() {
-        this.movie - null;
-        this.setState({display: "SearchControl"});
+    function onModalCloseClick() {
+        setMovie(null);
+        setDisplay("SearchControl");
     }
 
-    render() {
-        var searchOrReviewElement = (this.state.display === "MovieReview")
-            ? (<MovieReview movie={this.movie} onClose={(data) => this.onDisplayChanged(data)}/>)
-            : (<SearchControl/>);
-        var modalElement = "";
 
-        if (this.state.display === "EditMovieDialog")
-            modalElement = (<EditMovieDialog movie={this.movie} onModalCloseClick={() => this.onModalCloseClick()} />);
-        else if (this.state.display === "DeleteMovieDialog")
-            modalElement = (<DeleteMovieDialog movie={this.movie}  onModalCloseClick={() => this.onModalCloseClick()} />);
+    var searchOrReviewElement = (display === "MovieReview")
+        ? (<MovieReview movie={movie} onClose={(data) => onDisplayChanged(data)}/>)
+        : (<SearchControl/>);
+    var modalElement = "";
 
-        return (
-            <ErrorBoundary>
-                {modalElement}
-                {searchOrReviewElement}
-                <div className="separator"></div>
-                <MovieListContainer onActionClick={(data) => this.onDisplayChanged(data)} />
-                <Footer/>
-            </ErrorBoundary>
-        );
-    }
+    if (display === "EditMovieDialog")
+        modalElement = (<EditMovieDialog movie={movie} onModalCloseClick={() => onModalCloseClick()} />);
+    else if (display === "DeleteMovieDialog")
+        modalElement = (<DeleteMovieDialog movie={movie}  onModalCloseClick={() => onModalCloseClick()} />);
+
+    return (
+        <ErrorBoundary>
+            {modalElement}
+            {searchOrReviewElement}
+            <div className="separator"></div>
+            <MovieListContainer onActionClick={(data) => onDisplayChanged(data)} />
+            <Footer/>
+        </ErrorBoundary>);
 }
 
 export default App;
